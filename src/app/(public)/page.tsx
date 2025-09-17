@@ -10,6 +10,7 @@ import {
   FaChartLine,
   FaMobileAlt,
 } from "react-icons/fa";
+import Image from "next/image";
 
 export default function Home() {
   // Animation variants
@@ -27,6 +28,37 @@ export default function Home() {
       },
     },
   };
+
+  // Testimonials data
+  const testimonials = [
+    {
+      id: 1,
+      name: "Sarah Johnson",
+      role: "Event Organizer",
+      content:
+        "Event Hub has transformed how I manage my events. The platform is intuitive and the analytics help me make better decisions.",
+      avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+      gender: "female",
+    },
+    {
+      id: 2,
+      name: "Michael Chen",
+      role: "Conference Director",
+      content:
+        "I've used many event platforms, but Event Hub stands out with its powerful features and excellent customer support.",
+      avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+      gender: "male",
+    },
+    {
+      id: 3,
+      name: "Emily Rodriguez",
+      role: "Marketing Manager",
+      content:
+        "The booking system is seamless and our attendees love how easy it is to register for our events through Event Hub.",
+      avatar: "https://randomuser.me/api/portraits/women/68.jpg",
+      gender: "female",
+    },
+  ];
 
   return (
     <div className="overflow-hidden">
@@ -276,6 +308,63 @@ export default function Home() {
                 improve future events.
               </p>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 bg-gray-50 dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              What Our Users Say
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Trusted by event organizers around the world
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial) => (
+              <motion.div
+                key={testimonial.id}
+                className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeIn}
+              >
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden mr-4">
+                    <Image
+                      src={testimonial.avatar}
+                      alt={`${testimonial.name}'s avatar`}
+                      width={48}
+                      height={48}
+                      className="w-full h-full object-cover"
+                      priority
+                    />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
+                      {testimonial.name}
+                    </h4>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      {testimonial.role}
+                    </p>
+                  </div>
+                </div>
+                <p className="text-gray-600 dark:text-gray-300 italic">
+                  {testimonial.content}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
