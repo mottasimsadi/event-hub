@@ -557,6 +557,32 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Create Your Next Event?
+            </h2>
+            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+              Join thousands of event organizers who trust Event Hub for their
+              event management needs.
+            </p>
+            <Link
+              href="/signup"
+              className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-md font-medium text-lg transition-colors inline-block"
+            >
+              Get Started for Free
+            </Link>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 }
