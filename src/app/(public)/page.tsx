@@ -10,6 +10,7 @@ import {
   FaChartLine,
   FaMobileAlt,
   FaChevronDown,
+  FaLock,
 } from "react-icons/fa";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -487,6 +488,72 @@ export default function Home() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Security Section */}
+      <section className="py-20 bg-gray-50 dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+            <motion.div
+              className="md:w-1/2"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                Your Data Security is Our Priority
+              </h2>
+              <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">
+                We implement industry-leading security measures to protect your
+                data and your attendees&apos; information.
+              </p>
+              <div className="flex items-center mb-4">
+                <div className="text-blue-600 dark:text-blue-400 mr-3">
+                  <FaLock size={24} />
+                </div>
+                <p className="text-gray-700 dark:text-gray-300">
+                  End-to-end encryption for all sensitive data
+                </p>
+              </div>
+              <div className="flex items-center mb-4">
+                <div className="text-blue-600 dark:text-blue-400 mr-3">
+                  <FaLock size={24} />
+                </div>
+                <p className="text-gray-700 dark:text-gray-300">
+                  Secure payment processing
+                </p>
+              </div>
+              <div className="flex items-center">
+                <div className="text-blue-600 dark:text-blue-400 mr-3">
+                  <FaLock size={24} />
+                </div>
+                <p className="text-gray-700 dark:text-gray-300">
+                  GDPR compliant data handling
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="md:w-1/2"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn}
+            >
+              <div className="aspect-w-16 aspect-h-9 bg-blue-100 dark:bg-blue-900 rounded-lg overflow-hidden shadow-lg">
+                <Image
+                  src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                  alt="Data security shield"
+                  width={600}
+                  height={400}
+                  className="object-cover w-full h-full"
+                  priority={true}
+                />
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
