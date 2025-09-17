@@ -9,8 +9,10 @@ import {
   FaUsers,
   FaChartLine,
   FaMobileAlt,
+  FaChevronDown,
 } from "react-icons/fa";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   // Animation variants
@@ -59,6 +61,58 @@ export default function Home() {
       gender: "female",
     },
   ];
+
+  // FAQ data
+  const faqs = [
+    {
+      question: "How do I create an event?",
+      answer:
+        'Simply sign up for an account, navigate to your dashboard, and click on "Create Event". Fill in the event details, set your ticket prices, and publish!',
+    },
+    {
+      question: "Can I manage multiple events at once?",
+      answer:
+        "Yes! Event Hub allows you to create and manage multiple events simultaneously from a single dashboard.",
+    },
+    {
+      question: "How do attendees book tickets?",
+      answer:
+        "Attendees can browse events, select tickets, and complete their booking through our simple checkout process. They will receive confirmation emails with their tickets.",
+    },
+    {
+      question: "Is there a fee for using Event Hub?",
+      answer:
+        "We offer various pricing plans to suit different needs. Check our pricing page for more details on features and fees.",
+    },
+  ];
+
+  // State for FAQ dropdown
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+
+  // Handle FAQ section scroll when URL has section parameter
+  useEffect(() => {
+    const handleFaqScroll = () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const section = urlParams.get("section");
+
+      if (section === "faq") {
+        const faqElement = document.getElementById("faq");
+        if (faqElement) {
+          faqElement.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    };
+
+    handleFaqScroll();
+  }, []);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaqIndex(openFaqIndex === index ? null : index);
+  };
+
+  function handleFaqToggle(index: number) {
+    toggleFaq(index);
+  }
 
   return (
     <div className="overflow-hidden">
@@ -363,6 +417,74 @@ export default function Home() {
                 <p className="text-gray-600 dark:text-gray-300 italic">
                   {testimonial.content}
                 </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="py-20 bg-white dark:bg-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Find answers to common questions about Event Hub
+            </p>
+          </motion.div>
+
+          <div className="max-w-3xl mx-auto">
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                className="mb-6 border-b border-gray-200 dark:border-gray-700 pb-6 last:border-0 last:pb-0"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeIn}
+              >
+                <button
+                  onClick={function () {
+                    handleFaqToggle(index);
+                  }}
+                  className="w-full flex justify-between items-center text-left focus:outline-none"
+                  aria-expanded={openFaqIndex === index}
+                  aria-controls={`faq-answer-${index}`}
+                >
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                    {faq.question}
+                  </h3>
+                  <div
+                    className="text-blue-600 dark:text-blue-400 transition-transform duration-300"
+                    style={{
+                      transform:
+                        openFaqIndex === index
+                          ? "rotate(180deg)"
+                          : "rotate(0deg)",
+                    }}
+                  >
+                    <FaChevronDown size={20} />
+                  </div>
+                </button>
+                <div
+                  className={`mt-3 overflow-hidden transition-all duration-300 ${
+                    openFaqIndex === index
+                      ? "max-h-96 opacity-100"
+                      : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <p className="text-gray-600 dark:text-gray-300">
+                    {faq.answer}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
