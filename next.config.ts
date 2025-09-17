@@ -9,12 +9,12 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "randomuser.me",
-        pathname: "/",
+        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "picsum.photos",
-        pathname: "/",
+        pathname: "/**",
       },
       {
         protocol: "https",
