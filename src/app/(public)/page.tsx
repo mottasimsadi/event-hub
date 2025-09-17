@@ -2,6 +2,14 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import {
+  FaCalendarAlt,
+  FaMapMarkerAlt,
+  FaTicketAlt,
+  FaUsers,
+  FaChartLine,
+  FaMobileAlt,
+} from "react-icons/fa";
 
 export default function Home() {
   // Animation variants
@@ -9,6 +17,16 @@ export default function Home() {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
+
+    const staggerContainer = {
+      hidden: { opacity: 0 },
+      visible: {
+        opacity: 1,
+        transition: {
+          staggerChildren: 0.2,
+        },
+      },
+    };
 
   return (
     <div className="overflow-hidden">
@@ -50,6 +68,130 @@ export default function Home() {
           <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-white/30"></div>
           <div className="absolute top-1/4 -right-20 w-80 h-80 rounded-full bg-white/20"></div>
           <div className="absolute bottom-0 left-1/3 w-60 h-60 rounded-full bg-white/20"></div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 bg-gray-50 dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Powerful Features for Event Success
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Everything you need to create, manage, and grow your events
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.div
+              variants={fadeIn}
+              className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md"
+            >
+              <div className="text-blue-600 dark:text-blue-400 mb-4">
+                <FaCalendarAlt size={36} />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                Easy Event Creation
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Create and customize your events in minutes with our intuitive
+                event builder.
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={fadeIn}
+              className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md"
+            >
+              <div className="text-blue-600 dark:text-blue-400 mb-4">
+                <FaTicketAlt size={36} />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                Seamless Booking
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Provide a frictionless booking experience for your attendees
+                with our streamlined checkout.
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={fadeIn}
+              className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md"
+            >
+              <div className="text-blue-600 dark:text-blue-400 mb-4">
+                <FaChartLine size={36} />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                Detailed Analytics
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Gain insights into your event performance with comprehensive
+                analytics and reporting.
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={fadeIn}
+              className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md"
+            >
+              <div className="text-blue-600 dark:text-blue-400 mb-4">
+                <FaMapMarkerAlt size={36} />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                Location Management
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Manage physical and virtual event locations with integrated maps
+                and directions.
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={fadeIn}
+              className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md"
+            >
+              <div className="text-blue-600 dark:text-blue-400 mb-4">
+                <FaUsers size={36} />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                Attendee Management
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Track registrations, send communications, and manage your
+                attendee list effortlessly.
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={fadeIn}
+              className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md"
+            >
+              <div className="text-blue-600 dark:text-blue-400 mb-4">
+                <FaMobileAlt size={36} />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                Mobile Optimized
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Fully responsive design ensures a great experience on any
+                device, anywhere.
+              </p>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
     </div>
