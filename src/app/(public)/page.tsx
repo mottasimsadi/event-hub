@@ -18,15 +18,15 @@ export default function Home() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
-    const staggerContainer = {
-      hidden: { opacity: 0 },
-      visible: {
-        opacity: 1,
-        transition: {
-          staggerChildren: 0.2,
-        },
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
       },
-    };
+    },
+  };
 
   return (
     <div className="overflow-hidden">
@@ -192,6 +192,91 @@ export default function Home() {
               </p>
             </motion.div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="py-20 bg-white dark:bg-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              How It Works
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Get started with Event Hub in three simple steps
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div
+              className="text-center"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn}
+            >
+              <div className="bg-blue-100 dark:bg-blue-900 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                <span className="text-blue-600 dark:text-blue-300 text-2xl font-bold">
+                  1
+                </span>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                Create Your Event
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Sign up and use our intuitive event builder to create your event
+                with all the details.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="text-center"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn}
+            >
+              <div className="bg-blue-100 dark:bg-blue-900 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                <span className="text-blue-600 dark:text-blue-300 text-2xl font-bold">
+                  2
+                </span>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                Customize & Publish
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Set ticket types, prices, and customize your event page before
+                publishing it live.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="text-center"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn}
+            >
+              <div className="bg-blue-100 dark:bg-blue-900 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                <span className="text-blue-600 dark:text-blue-300 text-2xl font-bold">
+                  3
+                </span>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                Manage & Grow
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Track bookings, communicate with attendees, and use analytics to
+                improve future events.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
     </div>
