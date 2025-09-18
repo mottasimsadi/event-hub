@@ -5,6 +5,10 @@ A full-stack Next.js application for creating, managing, and booking events. Thi
 ## Live Links
 - **Live Website Link:** [Vercel Live Site](https://event-hub-six-psi.vercel.app/)
 
+## Admin Credentials
+- Mail: admin@admin.com
+- Pass: Admin@123
+
 ## Tech Stack
 
 - **Frontend**:
